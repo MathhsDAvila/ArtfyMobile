@@ -21,96 +21,80 @@ export default function SobreNosScreen() {
         <View style={styles.introSection}>
           <Text style={styles.headline}>SOBRE NÓS</Text>
           <Text style={styles.subheadline}>
-            Durante anos, temos sido referência em qualidade e inovação. 
-            Nossos produtos são criados para superar expectativas e entregar valor real.
+          Bem-vindo ao Diesel, o seu destino online para encontrar peças únicas e exclusivas que transformam qualquer espaço em um ambiente especial.
+
+Nossa missão é conectar você a obras que contam histórias, peças que inspiram e designs que encantam.
+
+
+
           </Text>
         </View>
 
         {/* Imagem 1 */}
         <Image
-          source={{ uri: 'https://f.i.uol.com.br/fotografia/2021/08/31/1630380104612da048a9fb7_1630380104_3x2_md.jpg' }}
-          style={styles.bannerImage}
-          resizeMode="cover"
-        />
+  source={require('../../assets/image-29.png')}
+  style={styles.bannerImage}
+  resizeMode="cover"
+/>
 
         {/* Missão */}
         <View style={styles.introSection}>
-          <Text style={styles.headline}>Nossa Missão</Text>
+          <Text style={styles.headline}>Nossa Coleção:</Text>
           <Text style={styles.subheadline}>
-            Oferecer experiências marcantes através de produtos confiáveis e um atendimento incomparável.
+          Cerâmicas: Peças artesanais funcionais e artísticas
+Artes: Quadros e esculturas expressivas
+Móveis: Design moderno com conforto
+Acreditamos no poder transformador da arte e do design em ambientes e vidas.
           </Text>
         </View>
 
         {/* Imagem 2 */}
-        <Image
-          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4O-YN1hOZuvgUWaIiCTZsR3l6dFWeKEmwxMEAi3OvE5L84RMbN73bBq-vvdX_Zwn72e0&usqp=CAU' }}
-          style={styles.bannerImage}
-          resizeMode="cover"
-        />
+      
 
-        {/* Valores */}
-        <View style={styles.introSection}>
-          <Text style={styles.headline}>Nossos Valores</Text>
-          <Text style={styles.subheadline}>• Qualidade em cada detalhe.</Text>
-          <Text style={styles.subheadline}>• Transparência com clientes e parceiros.</Text>
-          <Text style={styles.subheadline}>• Inovação como essência do nosso trabalho.</Text>
-        </View>
-
-        {/* Imagem 3 */}
-        <Image
-          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKwi4StZpe2UDIsVFSYjsmkbMQlhmsDLy4Pw&s' }}
-          style={styles.bannerImage}
-          resizeMode="cover"
-        />
+      
 
         {/* Carrossel de Cards */}
         <View style={styles.cardsSection}>
-          <Text style={styles.headline}>Conheça mais da nossa loja</Text>
+          <Text style={styles.headline}>Conheça Nossas Categorias</Text>
 
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.carousel}>
-            <TouchableOpacity style={styles.card} onPress={() => router.push('/loja')}>
-              <Image
-                source={{ uri: 'https://tantize.com.br/wp-content/uploads/2024/07/Obras-de-Arte-Johannes-Vermeer-Meisje-met-de-parel-_-Mauritshuis.jpg' }}
-                style={styles.cardImage}
-              />
-              <Text style={styles.cardTitle}>Arte Digital</Text>
-              <Text style={styles.cardText}>
-                Cores vibrantes e pincéis profissionais para sua criatividade florescer.
-              </Text>
-            </TouchableOpacity>
+          <TouchableOpacity style={styles.card} onPress={() => router.push('/loja')}>
+  <Image
+    source={require('../../assets/pintura.jpg')} // ajuste o caminho conforme a localização do seu arquivo
+    style={styles.cardImage}
+  />
+  <Text style={styles.cardTitle}>Pintura</Text>
+  <Text style={styles.cardText}>
+    Obras artísticas criadas com técnicas tradicionais ou contemporâneas, utilizando tinta sobre diferentes superfícies.
+  </Text>
+</TouchableOpacity>
+
 
             <TouchableOpacity style={styles.card} onPress={() => router.push('/loja')}>
-              <Image
-                source={{ uri: 'https://arteref.com/wp-content/uploads/2019/04/mona-lisa-leonardo-da-vinci.jpg' }}
-                style={styles.cardImage}
-              />
-              <Text style={styles.cardTitle}>Pintura</Text>
-              <Text style={styles.cardText}>
-                Ideal para artistas exigentes. Pigmentação intensa e acabamento duradouro.
-              </Text>
-            </TouchableOpacity>
+  <Image
+    source={require('../../assets/Fotografia.png')} // ajuste o caminho conforme a localização do seu arquivo
+    style={styles.cardImage}
+  />
+  <Text style={styles.cardTitle}>Fotografia</Text>
+  <Text style={styles.cardText}>
+    Imagens que capturam momentos únicos e transformam paredes em galerias de arte
+  </Text>
+</TouchableOpacity>
+
 
             <TouchableOpacity style={styles.card} onPress={() => router.push('/loja')}>
-              <Image
-                source={{ uri: 'https://arteref.com/wp-content/uploads/2019/04/mona-lisa-leonardo-da-vinci.jpg' }}
-                style={styles.cardImage}
-              />
-              <Text style={styles.cardTitle}>Escultura</Text>
-              <Text style={styles.cardText}>
-                Ideal para artistas exigentes. Pigmentação intensa e acabamento duradouro.
-              </Text>
-            </TouchableOpacity>
+  <Image
+    source={require('../../assets/escultura1.jpg')} // ajuste o caminho conforme sua estrutura de pastas
+    style={styles.cardImage}
+  />
+  <Text style={styles.cardTitle}>Escultura</Text>
+  <Text style={styles.cardText}>
+    Peças tridimensionais que trazem vida e movimento para qualquer ambiente.
+  </Text>
+</TouchableOpacity>
 
-            <TouchableOpacity style={styles.card} onPress={() => router.push('/loja')}>
-              <Image
-                source={{ uri: 'https://tantize.com.br/wp-content/uploads/2024/07/Obras-de-Arte-Johannes-Vermeer-Meisje-met-de-parel-_-Mauritshuis.jpg' }}
-                style={styles.cardImage}
-              />
-              <Text style={styles.cardTitle}>Fotografia</Text>
-              <Text style={styles.cardText}>
-                Decore com peças únicas feitas por artistas independentes.
-              </Text>
-            </TouchableOpacity>
+
+            
           </ScrollView>
         </View>
         
@@ -166,10 +150,19 @@ const styles = StyleSheet.create({
   },
   subheadline: {
     fontSize: 16,
-    color: '#444',
-    textAlign: 'center',
+    color: '#555',
+    textAlign: 'left', // <- removemos o justify
     lineHeight: 24,
+    paddingHorizontal: 14,
+    fontWeight: '400',
+   
+    borderRadius: 8,
+    paddingVertical: 10,
+    marginTop: -5,
+    marginBottom: 10,
   },
+  
+  
   bannerImage: {
     width: screenWidth,
     height: 200,

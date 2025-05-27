@@ -10,6 +10,7 @@ import {
   Dimensions,
   Easing,
   ScrollView,
+  Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -24,7 +25,6 @@ export default function Header() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const slideAnim = useRef(new Animated.Value(Dimensions.get('window').width)).current;
 
-  // Estados dos inputs do cadastro para formatar
   const [cpf, setCpf] = useState('');
   const [telefone, setTelefone] = useState('');
   const [dataNascimento, setDataNascimento] = useState('');
@@ -50,13 +50,11 @@ export default function Header() {
     { id: 3, name: 'Contato', icon: 'mail', screen: 'contato' },
   ];
 
-  // Função que deixa só números (remove tudo que não for número)
   const onlyNumbers = (text) => text.replace(/\D/g, '');
 
-  // Formatação CPF: 000.000.000-00
   const formatCPF = (text) => {
     let digits = onlyNumbers(text).slice(0, 11);
-    digits = digits.padEnd(11, ''); // garante até 11
+    digits = digits.padEnd(11, '');
     let formatted = digits;
 
     if (digits.length > 3 && digits.length <= 6)
@@ -76,40 +74,33 @@ export default function Header() {
     return formatted;
   };
 
-  // Formatação Data: dd/mm/aaaa
   const formatDate = (text) => {
     let digits = onlyNumbers(text).slice(0, 8);
     if (digits.length <= 2) return digits;
     if (digits.length <= 4) return digits.slice(0, 2) + '/' + digits.slice(2);
-    if (digits.length <= 8)
-      return digits.slice(0, 2) + '/' + digits.slice(2, 4) + '/' + digits.slice(4);
-    return digits;
+    return digits.slice(0, 2) + '/' + digits.slice(2, 4) + '/' + digits.slice(4);
   };
 
-  // Formatação Telefone: (00) 00000-0000
   const formatTelefone = (text) => {
     let digits = onlyNumbers(text).slice(0, 11);
-
     if (digits.length <= 2) return '(' + digits;
     if (digits.length <= 7) return '(' + digits.slice(0, 2) + ') ' + digits.slice(2);
-    if (digits.length <= 11)
-      return (
-        '(' +
-        digits.slice(0, 2) +
-        ') ' +
-        digits.slice(2, 7) +
-        '-' +
-        digits.slice(7)
-      );
+    return '(' + digits.slice(0, 2) + ') ' + digits.slice(2, 7) + '-' + digits.slice(7);
+  };
 
-    return digits;
+  const handleForgotPassword = () => {
+    setLoginVisible(false);
+    Alert.alert(
+      'Recuperação de Senha',
+      'Enviaremos um link de recuperação para o seu e-mail, se ele estiver cadastrado.',
+    );
   };
 
   return (
     <>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.push('/')} style={styles.titleWrapper}>
-          <Text style={styles.headerTitle}>Diesel</Text>
+          <Text style={styles.headerTitle}>ARTFY</Text>
         </TouchableOpacity>
 
         <View style={styles.iconGroup}>
@@ -182,6 +173,10 @@ export default function Header() {
               </TouchableOpacity>
             </View>
 
+            <TouchableOpacity onPress={handleForgotPassword}>
+              <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity style={styles.loginButton}>
               <Text style={styles.loginButtonText}>Entrar</Text>
             </TouchableOpacity>
@@ -215,7 +210,7 @@ export default function Header() {
                 keyboardType="numeric"
                 value={cpf}
                 onChangeText={(text) => setCpf(formatCPF(text))}
-                maxLength={14} // 000.000.000-00 tem 14 caracteres
+                maxLength={14}
               />
 
               <TextInput
@@ -224,7 +219,7 @@ export default function Header() {
                 keyboardType="numeric"
                 value={dataNascimento}
                 onChangeText={(text) => setDataNascimento(formatDate(text))}
-                maxLength={10} // dd/mm/aaaa tem 10 caracteres
+                maxLength={10}
               />
 
               <TextInput
@@ -233,7 +228,7 @@ export default function Header() {
                 keyboardType="phone-pad"
                 value={telefone}
                 onChangeText={(text) => setTelefone(formatTelefone(text))}
-                maxLength={15} // (00) 00000-0000 tem 15 caracteres
+                maxLength={15}
               />
 
               <TextInput style={styles.input} placeholder="Email" keyboardType="email-address" />
@@ -352,6 +347,12 @@ const styles = StyleSheet.create({
   },
   passwordInput: {
     flex: 1,
+  },
+  forgotPassword: {
+    color: '#0066cc',
+    fontSize: 14,
+    textAlign: 'right',
+    marginBottom: 10,
   },
   loginButton: {
     backgroundColor: '#232637',

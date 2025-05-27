@@ -194,7 +194,7 @@ export default function LojaScreen() {
                 style={styles.cartIconButton}
                 onPress={() => alert(`Adicionar ao carrinho: ${item.name}`)}
               >
-                <Ionicons name="cart-outline" size={20} color="#0066cc" />
+                <Ionicons name="cart-outline" size={20} color="#826A3" />
               </TouchableOpacity>
             </View>
           </View>
@@ -422,12 +422,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 8,
-    backgroundColor: '#232637',
+    backgroundColor: '#483d8d',
   },
   filterButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#0066cc',
+    backgroundColor: '#483d8d',
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 6,
@@ -439,7 +439,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   selectedCategory: {
-    color: '#fff',
+    color: 'white',
     fontSize: 14,
     fontWeight: '600',
   },
@@ -498,7 +498,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   buyButton: {
-    backgroundColor: '#232637',
+    backgroundColor: '#483d8b',
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 6,
@@ -513,6 +513,7 @@ const styles = StyleSheet.create({
     top: 8,
     right: 8,
     padding: 4,
+  
   },
   menuContainer: {
     position: 'absolute',
