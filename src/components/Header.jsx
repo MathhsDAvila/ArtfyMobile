@@ -1,3 +1,5 @@
+// Header.js
+
 import React, { useState, useRef } from 'react';
 import {
   View,
@@ -96,6 +98,12 @@ export default function Header() {
     );
   };
 
+  const handleLogout = () => {
+    Alert.alert('Logout', 'Você saiu da conta.');
+    toggleMenu();
+    // Aqui você pode adicionar lógica real de logout futuramente
+  };
+
   return (
     <>
       <View style={styles.header}>
@@ -145,6 +153,12 @@ export default function Header() {
             <TouchableOpacity style={styles.menuItem} onPress={() => handleNavigate('carrinho')}>
               <Ionicons name="cart" size={24} color="black" />
               <Text style={styles.menuText}>Carrinho</Text>
+            </TouchableOpacity>
+
+            {/* Botão Sair */}
+            <TouchableOpacity style={[styles.menuItem, { marginTop: 30 }]} onPress={handleLogout}>
+              <Ionicons name="log-out-outline" size={24} color="black" />
+              <Text style={styles.menuText}>Sair</Text>
             </TouchableOpacity>
           </View>
         </Animated.View>
